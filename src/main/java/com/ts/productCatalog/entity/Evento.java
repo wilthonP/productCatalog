@@ -13,51 +13,58 @@ public class Evento {
 	private String nombre;
 	private String observaciones;
 	private String tipoActividad;
-	private List<String> categoria;
+	private String categoria;
+	private List<String> subCategoria;
+	private String pais;
 	private String ciudad;
 	private boolean eventoNacional;
 	private boolean aplicaPreventa;
 	private Date fechaHoraEvento;
 	private Date fechaCanje;
+	private String idEscenario;
 	private String usuarioCreacion;
 	private String usuarioModificacion;
 	private Date fechaCreacion;
 	private Date fechaModificacion;	
 	private String estado;
 	
-	public Evento() {
-		super();
-		// TODO Auto-generated constructor stub
+	@Override
+	public String toString() {
+		return "Evento [id=" + id + ", nombre=" + nombre + ", observaciones=" + observaciones + ", tipoActividad="
+				+ tipoActividad + ", categoria=" + categoria + ", subCategoria=" + subCategoria + ", pais=" + pais
+				+ ", ciudad=" + ciudad + ", eventoNacional=" + eventoNacional + ", aplicaPreventa=" + aplicaPreventa
+				+ ", fechaHoraEvento=" + fechaHoraEvento + ", fechaCanje=" + fechaCanje + ", idEscenario=" + idEscenario
+				+ ", usuarioCreacion=" + usuarioCreacion + ", usuarioModificacion=" + usuarioModificacion
+				+ ", fechaCreacion=" + fechaCreacion + ", fechaModificacion=" + fechaModificacion + ", estado=" + estado
+				+ "]";
 	}
-	public Evento(String id, String nombre, String observaciones, String tipoActividad, List<String> categoria,
-			String ciudad, boolean eventoNacional, boolean aplicaPreventa, Date fechaHoraEvento, Date fechaCanje,
-			String usuarioCreacion, String usuarioModificacion, Date fechaCreacion, Date fechaModificacion,
-			String estado) {
+	public Evento(String id, String nombre, String observaciones, String tipoActividad, String categoria,
+			List<String> subCategoria, String pais, String ciudad, boolean eventoNacional, boolean aplicaPreventa,
+			Date fechaHoraEvento, Date fechaCanje, String idEscenario, String usuarioCreacion,
+			String usuarioModificacion, Date fechaCreacion, Date fechaModificacion, String estado) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.observaciones = observaciones;
 		this.tipoActividad = tipoActividad;
 		this.categoria = categoria;
+		this.subCategoria = subCategoria;
+		this.pais = pais;
 		this.ciudad = ciudad;
 		this.eventoNacional = eventoNacional;
 		this.aplicaPreventa = aplicaPreventa;
 		this.fechaHoraEvento = fechaHoraEvento;
 		this.fechaCanje = fechaCanje;
+		this.idEscenario = idEscenario;
 		this.usuarioCreacion = usuarioCreacion;
 		this.usuarioModificacion = usuarioModificacion;
 		this.fechaCreacion = fechaCreacion;
 		this.fechaModificacion = fechaModificacion;
 		this.estado = estado;
 	}
-	@Override
-	public String toString() {
-		return "Evento [id=" + id + ", nombre=" + nombre + ", observaciones=" + observaciones + ", tipoActividad="
-				+ tipoActividad + ", categoria=" + categoria + ", ciudad=" + ciudad + ", eventoNacional="
-				+ eventoNacional + ", aplicaPreventa=" + aplicaPreventa + ", fechaHoraEvento=" + fechaHoraEvento
-				+ ", fechaCanje=" + fechaCanje + ", usuarioCreacion=" + usuarioCreacion + ", usuarioModificacion="
-				+ usuarioModificacion + ", fechaCreacion=" + fechaCreacion + ", fechaModificacion=" + fechaModificacion
-				+ ", estado=" + estado + "]";
+	public Evento() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public String getId() {
 		return id;
@@ -83,11 +90,23 @@ public class Evento {
 	public void setTipoActividad(String tipoActividad) {
 		this.tipoActividad = tipoActividad;
 	}
-	public List<String> getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(List<String> categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
+	}
+	public List<String> getSubCategoria() {
+		return subCategoria;
+	}
+	public void setSubCategoria(List<String> subCategoria) {
+		this.subCategoria = subCategoria;
+	}
+	public String getPais() {
+		return pais;
+	}
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 	public String getCiudad() {
 		return ciudad;
@@ -118,6 +137,12 @@ public class Evento {
 	}
 	public void setFechaCanje(Date fechaCanje) {
 		this.fechaCanje = fechaCanje;
+	}
+	public String getIdEscenario() {
+		return idEscenario;
+	}
+	public void setIdEscenario(String idEscenario) {
+		this.idEscenario = idEscenario;
 	}
 	public String getUsuarioCreacion() {
 		return usuarioCreacion;

@@ -5,16 +5,16 @@ import java.util.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="pcEmpresario")
-public class Empresario {	
+@Document(collection="pcValorLocalidad")
+public class ValorLocalidad {
 	@Id
 	private String id;
 	private String idEvento;
-	private String idEmpresario;
-	private String codigoMunicipal;
-	private String caracterEspecial;
-	private String mascara;
-	private boolean codigoBarraLineal;
+	private String idEscenario;
+	private String idLocalidad;
+	private double valorPreventa;
+	private double valorCortesia;
+	private double valorDefinitivo;
 	private String usuarioCreacion;
 	private String usuarioModificacion;
 	private Date fechaCreacion;
@@ -23,30 +23,30 @@ public class Empresario {
 	
 	@Override
 	public String toString() {
-		return "Empresario [id=" + id + ", idEvento=" + idEvento + ", idEmpresario=" + idEmpresario
-				+ ", codigoMunicipal=" + codigoMunicipal + ", caracterEspecial=" + caracterEspecial + ", mascara="
-				+ mascara + ", codigoBarraLineal=" + codigoBarraLineal + ", usuarioCreacion=" + usuarioCreacion
+		return "ValorLocalidad [id=" + id + ", idEvento=" + idEvento + ", idEscenario=" + idEscenario + ", idLocalidad="
+				+ idLocalidad + ", valorPreventa=" + valorPreventa + ", valorCortesia=" + valorCortesia
+				+ ", valorDefinitivo=" + valorDefinitivo + ", usuarioCreacion=" + usuarioCreacion
 				+ ", usuarioModificacion=" + usuarioModificacion + ", fechaCreacion=" + fechaCreacion
 				+ ", fechaModificacion=" + fechaModificacion + ", estado=" + estado + "]";
 	}
-	public Empresario(String id, String idEvento, String idEmpresario, String codigoMunicipal, String caracterEspecial,
-			String mascara, boolean codigoBarraLineal, String usuarioCreacion, String usuarioModificacion,
+	public ValorLocalidad(String id, String idEvento, String idEscenario, String idLocalidad, double valorPreventa,
+			double valorCortesia, double valorDefinitivo, String usuarioCreacion, String usuarioModificacion,
 			Date fechaCreacion, Date fechaModificacion, String estado) {
 		super();
 		this.id = id;
 		this.idEvento = idEvento;
-		this.idEmpresario = idEmpresario;
-		this.codigoMunicipal = codigoMunicipal;
-		this.caracterEspecial = caracterEspecial;
-		this.mascara = mascara;
-		this.codigoBarraLineal = codigoBarraLineal;
+		this.idEscenario = idEscenario;
+		this.idLocalidad = idLocalidad;
+		this.valorPreventa = valorPreventa;
+		this.valorCortesia = valorCortesia;
+		this.valorDefinitivo = valorDefinitivo;
 		this.usuarioCreacion = usuarioCreacion;
 		this.usuarioModificacion = usuarioModificacion;
 		this.fechaCreacion = fechaCreacion;
 		this.fechaModificacion = fechaModificacion;
 		this.estado = estado;
 	}
-	public Empresario() {
+	public ValorLocalidad() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -62,35 +62,35 @@ public class Empresario {
 	public void setIdEvento(String idEvento) {
 		this.idEvento = idEvento;
 	}
-	public String getIdEmpresario() {
-		return idEmpresario;
+	public String getIdEscenario() {
+		return idEscenario;
 	}
-	public void setIdEmpresario(String idEmpresario) {
-		this.idEmpresario = idEmpresario;
+	public void setIdEscenario(String idEscenario) {
+		this.idEscenario = idEscenario;
 	}
-	public String getCodigoMunicipal() {
-		return codigoMunicipal;
+	public String getIdLocalidad() {
+		return idLocalidad;
 	}
-	public void setCodigoMunicipal(String codigoMunicipal) {
-		this.codigoMunicipal = codigoMunicipal;
+	public void setIdLocalidad(String idLocalidad) {
+		this.idLocalidad = idLocalidad;
 	}
-	public String getCaracterEspecial() {
-		return caracterEspecial;
+	public double getValorPreventa() {
+		return valorPreventa;
 	}
-	public void setCaracterEspecial(String caracterEspecial) {
-		this.caracterEspecial = caracterEspecial;
+	public void setValorPreventa(double valorPreventa) {
+		this.valorPreventa = valorPreventa;
 	}
-	public String getMascara() {
-		return mascara;
+	public double getValorCortesia() {
+		return valorCortesia;
 	}
-	public void setMascara(String mascara) {
-		this.mascara = mascara;
+	public void setValorCortesia(double valorCortesia) {
+		this.valorCortesia = valorCortesia;
 	}
-	public boolean isCodigoBarraLineal() {
-		return codigoBarraLineal;
+	public double getValorDefinitivo() {
+		return valorDefinitivo;
 	}
-	public void setCodigoBarraLineal(boolean codigoBarraLineal) {
-		this.codigoBarraLineal = codigoBarraLineal;
+	public void setValorDefinitivo(double valorDefinitivo) {
+		this.valorDefinitivo = valorDefinitivo;
 	}
 	public String getUsuarioCreacion() {
 		return usuarioCreacion;

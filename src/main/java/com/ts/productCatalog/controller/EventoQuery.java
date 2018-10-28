@@ -8,7 +8,9 @@ public class EventoQuery {
 	private String nombre;
 	private String observaciones;
 	private String tipoActividad;
-	private List<String> categoria;
+	private String categoria;
+	private List<String> subCategoria;
+	private String pais;
 	private String ciudad;
 	private boolean eventoNacional;
 	private boolean aplicaPreventa;
@@ -16,19 +18,24 @@ public class EventoQuery {
 	private Date fechaCanje;
 	private String estado;
 	
-	public EventoQuery() {
-		super();
-		// TODO Auto-generated constructor stub
+	@Override
+	public String toString() {
+		return "EventoQuery [id=" + id + ", nombre=" + nombre + ", observaciones=" + observaciones + ", tipoActividad="
+				+ tipoActividad + ", categoria=" + categoria + ", subCategoria=" + subCategoria + ", pais=" + pais
+				+ ", ciudad=" + ciudad + ", eventoNacional=" + eventoNacional + ", aplicaPreventa=" + aplicaPreventa
+				+ ", fechaHoraEvento=" + fechaHoraEvento + ", fechaCanje=" + fechaCanje + ", estado=" + estado + "]";
 	}
-	public EventoQuery(String id, String nombre, String observaciones, String tipoActividad, List<String> categoria,
-			String ciudad, boolean eventoNacional, boolean aplicaPreventa, Date fechaHoraEvento, Date fechaCanje,
-			String estado) {
+	public EventoQuery(String id, String nombre, String observaciones, String tipoActividad, String categoria,
+			List<String> subCategoria, String pais, String ciudad, boolean eventoNacional, boolean aplicaPreventa,
+			Date fechaHoraEvento, Date fechaCanje, String estado) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.observaciones = observaciones;
 		this.tipoActividad = tipoActividad;
 		this.categoria = categoria;
+		this.subCategoria = subCategoria;
+		this.pais = pais;
 		this.ciudad = ciudad;
 		this.eventoNacional = eventoNacional;
 		this.aplicaPreventa = aplicaPreventa;
@@ -36,12 +43,9 @@ public class EventoQuery {
 		this.fechaCanje = fechaCanje;
 		this.estado = estado;
 	}
-	@Override
-	public String toString() {
-		return "EventoQuery [id=" + id + ", nombre=" + nombre + ", observaciones=" + observaciones + ", tipoActividad="
-				+ tipoActividad + ", categoria=" + categoria + ", ciudad=" + ciudad + ", eventoNacional="
-				+ eventoNacional + ", aplicaPreventa=" + aplicaPreventa + ", fechaHoraEvento=" + fechaHoraEvento
-				+ ", fechaCanje=" + fechaCanje + ", estado=" + estado + "]";
+	public EventoQuery() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public String getId() {
 		return id;
@@ -67,11 +71,23 @@ public class EventoQuery {
 	public void setTipoActividad(String tipoActividad) {
 		this.tipoActividad = tipoActividad;
 	}
-	public List<String> getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(List<String> categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
+	}
+	public List<String> getSubCategoria() {
+		return subCategoria;
+	}
+	public void setSubCategoria(List<String> subCategoria) {
+		this.subCategoria = subCategoria;
+	}
+	public String getPais() {
+		return pais;
+	}
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 	public String getCiudad() {
 		return ciudad;

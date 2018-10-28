@@ -64,6 +64,7 @@ public class EmpresarioComponent {
 		try {
 			empresario.setFechaCreacion(now);
 			empresario.setFechaModificacion(now);
+			empresario.setEstado("P");
 			if(empresarioRepository.save(empresario) != null) {
 				mensajesAlerta.setCodigo("01");
 				mensajesAlerta.setParam(empresario.getId());
