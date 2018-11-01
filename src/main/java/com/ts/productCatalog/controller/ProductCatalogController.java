@@ -15,6 +15,8 @@ import com.ts.productCatalog.component.AutorizacionEventoComponent;
 import com.ts.productCatalog.component.DisenioTicketLocalidadComponent;
 import com.ts.productCatalog.component.EmpresarioComponent;
 import com.ts.productCatalog.component.EventoComponent;
+import com.ts.productCatalog.component.ImpuestoValorComponent;
+import com.ts.productCatalog.component.ItemServicioValorComponent;
 import com.ts.productCatalog.component.PrecioLocalidadComponent;
 import com.ts.productCatalog.component.SecuencialLocalidadComponent;
 import com.ts.productCatalog.component.ValorLocalidadComponent;
@@ -22,6 +24,8 @@ import com.ts.productCatalog.entity.AutorizacionEvento;
 import com.ts.productCatalog.entity.DisenioTicketLocalidad;
 import com.ts.productCatalog.entity.Empresario;
 import com.ts.productCatalog.entity.Evento;
+import com.ts.productCatalog.entity.ImpuestoValor;
+import com.ts.productCatalog.entity.ItemServicioValor;
 import com.ts.productCatalog.entity.PrecioLocalidad;
 import com.ts.productCatalog.entity.SecuencialLocalidad;
 import com.ts.productCatalog.entity.ValorLocalidad;
@@ -38,12 +42,15 @@ public class ProductCatalogController {
 	private SecuencialLocalidadComponent secuencialLocalidadComponent;
 	private DisenioTicketLocalidadComponent disenioTicketLocalidadComponent;
 	private ValorLocalidadComponent valorLocalidadComponent;
+	private ItemServicioValorComponent itemServicioValorComponent;
+	private ImpuestoValorComponent impuestoValorComponent;
 
 	@Autowired
 	public ProductCatalogController(EventoComponent eventoComponent, EmpresarioComponent empresarioComponent,
 			AutorizacionEventoComponent autorizacionEventoComponent,PrecioLocalidadComponent precioLocalidadComponent,
 			SecuencialLocalidadComponent secuencialLocalidadComponent, DisenioTicketLocalidadComponent disenioTicketLocalidadComponent,
-			ValorLocalidadComponent valorLocalidadComponent) {
+			ValorLocalidadComponent valorLocalidadComponent, ItemServicioValorComponent itemServicioValorComponent, 
+			ImpuestoValorComponent impuestoValorComponent) {
 		super();
 		this.eventoComponent = eventoComponent;
 		this.empresarioComponent = empresarioComponent;
@@ -51,6 +58,8 @@ public class ProductCatalogController {
 		this.precioLocalidadComponent = precioLocalidadComponent;
 		this.secuencialLocalidadComponent = secuencialLocalidadComponent;
 		this.disenioTicketLocalidadComponent = disenioTicketLocalidadComponent;
+		this.itemServicioValorComponent = itemServicioValorComponent;
+		this.impuestoValorComponent = impuestoValorComponent;
 		this.valorLocalidadComponent = valorLocalidadComponent;
 	}
 	
@@ -361,5 +370,49 @@ public class ProductCatalogController {
 	@RequestMapping(value="/setStatusValorLocalidad", method = RequestMethod.POST)
 	JsonObject setStatusValorLocalidad(@RequestBody ValorLocalidadQuery query) throws Exception{
 		return valorLocalidadComponent.setStatus(query);
+	}
+	
+	/**************************** Valores Impuestos *******************************/
+	@Cacheable(value = "post-single", key = "#query", unless = "#result.shares < 500")
+	@RequestMapping(value="/getPcImpuestoValorById", method = RequestMethod.POST)
+	ImpuestoValor searchImpuestoValorById(@RequestBody ImpuestoValorQuery query){
+		return impuestoValorComponent.getImpuestoValorById(query);
+	}
+	@Cacheable(value = "post-single", key = "#query", unless = "#result.shares < 500")
+	@RequestMapping(value="/getPcImpuestoValorAll", method = RequestMethod.POST)
+	List<ImpuestoValor> getImpuestoValorAll(){
+		return impuestoValorComponent.getImpuestoValorAll();
+	}
+	@Cacheable(value = "post-single", key = "#query", unless = "#result.shares < 500")
+	@RequestMapping(value="/createPcImpuestoValor", method = RequestMethod.POST)
+	JsonObject createImpuestoValor(@RequestBody ImpuestoValor impuestoValor) throws Exception{
+		return impuestoValorComponent.create(impuestoValor);
+	}
+	@Cacheable(value = "post-single", key = "#query", unless = "#result.shares < 500")
+	@RequestMapping(value="/updatePcImpuestoValor", method = RequestMethod.POST)
+	JsonObject updateImpuestoValor(@RequestBody ImpuestoValor impuestoValor) throws Exception{
+		return impuestoValorComponent.update(impuestoValor);
+	}
+	
+	/**************************** Valores Item Servicio *******************************/
+	@Cacheable(value = "post-single", key = "#query", unless = "#result.shares < 500")
+	@RequestMapping(value="/getPcItemServicioValorById", method = RequestMethod.POST)
+	ItemServicioValor searchItemServicioValorById(@RequestBody ItemServicioValorQuery query){
+		return itemServicioValorComponent.getItemServicioValorById(query);
+	}
+	@Cacheable(value = "post-single", key = "#query", unless = "#result.shares < 500")
+	@RequestMapping(value="/getPcItemServicioValorAll", method = RequestMethod.POST)
+	List<ItemServicioValor> getItemServicioValorAll(){
+		return itemServicioValorComponent.getItemServicioValorAll();
+	}
+	@Cacheable(value = "post-single", key = "#query", unless = "#result.shares < 500")
+	@RequestMapping(value="/createPcItemServicioValor", method = RequestMethod.POST)
+	JsonObject createItemServicioValor(@RequestBody ItemServicioValor itemServicioValor) throws Exception{
+		return itemServicioValorComponent.create(itemServicioValor);
+	}
+	@Cacheable(value = "post-single", key = "#query", unless = "#result.shares < 500")
+	@RequestMapping(value="/updatePcItemServicioValor", method = RequestMethod.POST)
+	JsonObject updateItemServicioValor(@RequestBody ItemServicioValor itemServicioValor) throws Exception{
+		return itemServicioValorComponent.update(itemServicioValor);
 	}
 }

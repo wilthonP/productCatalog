@@ -1,21 +1,20 @@
 package com.ts.productCatalog.entity;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="pcPrecioLocalidad")
-public class PrecioLocalidad {
-	
+@Document(collection="pcLocalidad")
+public class Localidad {
+
 	@Id
 	private String id;
 	private String idEvento;
+	private String nombre;
+	private String descripcion;
+	private Integer capacidadLocalidad;
 	private String idEscenario;
-	private String idLocalidad;
-	private List<String> valoresServicios;
-	private List<String> valoresImpuesto;
 	private String usuarioCreacion;
 	private String usuarioModificacion;
 	private Date fechaCreacion;
@@ -24,29 +23,28 @@ public class PrecioLocalidad {
 	
 	@Override
 	public String toString() {
-		return "PrecioLocalidad [id=" + id + ", idEvento=" + idEvento + ", idEscenario=" + idEscenario
-				+ ", idLocalidad=" + idLocalidad + ", valoresServicios=" + valoresServicios + ", valoresImpuesto="
-				+ valoresImpuesto + ", usuarioCreacion=" + usuarioCreacion + ", usuarioModificacion="
-				+ usuarioModificacion + ", fechaCreacion=" + fechaCreacion + ", fechaModificacion=" + fechaModificacion
-				+ ", estado=" + estado + "]";
+		return "Localidad [id=" + id + ", idEvento=" + idEvento + ", nombre=" + nombre + ", descripcion=" + descripcion
+				+ ", capacidadLocalidad=" + capacidadLocalidad + ", idEscenario=" + idEscenario + ", usuarioCreacion="
+				+ usuarioCreacion + ", usuarioModificacion=" + usuarioModificacion + ", fechaCreacion=" + fechaCreacion
+				+ ", fechaModificacion=" + fechaModificacion + ", estado=" + estado + "]";
 	}
-	public PrecioLocalidad(String id, String idEvento, String idEscenario, String idLocalidad,
-			List<String> valoresServicios, List<String> valoresImpuesto, String usuarioCreacion,
-			String usuarioModificacion, Date fechaCreacion, Date fechaModificacion, String estado) {
+	public Localidad(String id, String idEvento, String nombre, String descripcion, Integer capacidadLocalidad,
+			String idEscenario, String usuarioCreacion, String usuarioModificacion, Date fechaCreacion,
+			Date fechaModificacion, String estado) {
 		super();
 		this.id = id;
 		this.idEvento = idEvento;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.capacidadLocalidad = capacidadLocalidad;
 		this.idEscenario = idEscenario;
-		this.idLocalidad = idLocalidad;
-		this.valoresServicios = valoresServicios;
-		this.valoresImpuesto = valoresImpuesto;
 		this.usuarioCreacion = usuarioCreacion;
 		this.usuarioModificacion = usuarioModificacion;
 		this.fechaCreacion = fechaCreacion;
 		this.fechaModificacion = fechaModificacion;
 		this.estado = estado;
 	}
-	public PrecioLocalidad() {
+	public Localidad() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -62,29 +60,29 @@ public class PrecioLocalidad {
 	public void setIdEvento(String idEvento) {
 		this.idEvento = idEvento;
 	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	public Integer getCapacidadLocalidad() {
+		return capacidadLocalidad;
+	}
+	public void setCapacidadLocalidad(Integer capacidadLocalidad) {
+		this.capacidadLocalidad = capacidadLocalidad;
+	}
 	public String getIdEscenario() {
 		return idEscenario;
 	}
 	public void setIdEscenario(String idEscenario) {
 		this.idEscenario = idEscenario;
-	}
-	public String getIdLocalidad() {
-		return idLocalidad;
-	}
-	public void setIdLocalidad(String idLocalidad) {
-		this.idLocalidad = idLocalidad;
-	}
-	public List<String> getValoresServicios() {
-		return valoresServicios;
-	}
-	public void setValoresServicios(List<String> valoresServicios) {
-		this.valoresServicios = valoresServicios;
-	}
-	public List<String> getValoresImpuesto() {
-		return valoresImpuesto;
-	}
-	public void setValoresImpuesto(List<String> valoresImpuesto) {
-		this.valoresImpuesto = valoresImpuesto;
 	}
 	public String getUsuarioCreacion() {
 		return usuarioCreacion;

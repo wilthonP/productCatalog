@@ -14,11 +14,16 @@ public class Receiver {
 	PrecioLocalidadComponent precioLocalidadComponent;
 	SecuencialLocalidadComponent secuencialLocalidadComponent;
 	DisenioTicketLocalidadComponent disenioTicketLocalidadComponent;
+	ValorLocalidadComponent valorLocalidadComponent;
+	ItemServicioValorComponent itemServicioValorComponent;
+	ImpuestoValorComponent impuestoValorComponent;
 
 	@Autowired
 	public Receiver(EventoComponent eventoComponent, EmpresarioComponent empresarioComponent,
 			AutorizacionEventoComponent autorizacionEventoComponent,PrecioLocalidadComponent precioLocalidadComponent,
-			SecuencialLocalidadComponent secuencialLocalidadComponent, DisenioTicketLocalidadComponent disenioTicketLocalidadComponent) {
+			SecuencialLocalidadComponent secuencialLocalidadComponent, DisenioTicketLocalidadComponent disenioTicketLocalidadComponent,
+			ItemServicioValorComponent itemServicioValorComponent, ImpuestoValorComponent impuestoValorComponent,
+			ValorLocalidadComponent valorLocalidadComponent) {
 		super();
 		this.eventoComponent = eventoComponent;
 		this.empresarioComponent = empresarioComponent;
@@ -26,6 +31,9 @@ public class Receiver {
 		this.precioLocalidadComponent = precioLocalidadComponent;
 		this.secuencialLocalidadComponent = secuencialLocalidadComponent;
 		this.disenioTicketLocalidadComponent = disenioTicketLocalidadComponent;
+		this.itemServicioValorComponent = itemServicioValorComponent;
+		this.impuestoValorComponent = impuestoValorComponent;
+		this.valorLocalidadComponent = valorLocalidadComponent;
 	}
 	
 	@Bean

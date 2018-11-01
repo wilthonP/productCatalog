@@ -2,31 +2,25 @@ package com.ts.productCatalog.controller;
 
 import java.util.List;
 
-import com.ts.productCatalog.entity.ItemServicioValor;
-
 public class PrecioLocalidadQuery {
 
 	private String id;
 	private String idEvento;
 	private String idEscenario;
 	private String idLocalidad;
-	private List<ItemServicioValor> valoresServicios;
+	private List<String> valoresServicios;
+	private List<String> valoresImpuesto;
 	private String estado;
 	
-	@Override
-	public String toString() {
-		return "PrecioLocalidadQuery [id=" + id + ", idEvento=" + idEvento + ", idEscenario=" + idEscenario
-				+ ", idLocalidad=" + idLocalidad + ", valoresServicios=" + valoresServicios + ", estado=" + estado
-				+ "]";
-	}
 	public PrecioLocalidadQuery(String id, String idEvento, String idEscenario, String idLocalidad,
-			List<ItemServicioValor> valoresServicios, String estado) {
+			List<String> valoresServicios, List<String> valoresImpuesto, String estado) {
 		super();
 		this.id = id;
 		this.idEvento = idEvento;
 		this.idEscenario = idEscenario;
 		this.idLocalidad = idLocalidad;
 		this.valoresServicios = valoresServicios;
+		this.valoresImpuesto = valoresImpuesto;
 		this.estado = estado;
 	}
 	public PrecioLocalidadQuery() {
@@ -57,11 +51,17 @@ public class PrecioLocalidadQuery {
 	public void setIdLocalidad(String idLocalidad) {
 		this.idLocalidad = idLocalidad;
 	}
-	public List<ItemServicioValor> getValoresServicios() {
+	public List<String> getValoresServicios() {
 		return valoresServicios;
 	}
-	public void setValoresServicios(List<ItemServicioValor> valoresServicios) {
+	public void setValoresServicios(List<String> valoresServicios) {
 		this.valoresServicios = valoresServicios;
+	}
+	public List<String> getValoresImpuesto() {
+		return valoresImpuesto;
+	}
+	public void setValoresImpuesto(List<String> valoresImpuesto) {
+		this.valoresImpuesto = valoresImpuesto;
 	}
 	public String getEstado() {
 		return estado;
